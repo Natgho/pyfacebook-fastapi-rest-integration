@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Body, Query
+from fastapi import FastAPI, Body
 from starlette.responses import RedirectResponse
 
 from sub_utils.facebook_utils import FacebookApi
