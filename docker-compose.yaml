@@ -1,0 +1,10 @@
+version: '3.0'
+
+services:
+  usecase_facebook_integration:
+    container_name: usecase-facebook-integration
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
