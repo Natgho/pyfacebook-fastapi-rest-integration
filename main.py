@@ -18,7 +18,7 @@ app = FastAPI(title='Use-Case Facebook Integration',
               })
 
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def root():
     response = RedirectResponse(url="/docs")
     return response
@@ -59,11 +59,6 @@ async def get_creative_ads():
 @app.post("/creative_ads", tags=["AdCreative"])
 async def create_creative_ads(creative_ad_details: CreativeAdItem = Body(mock_creative_campaign)):
     return api.create_creative_ad(**creative_ad_details.dict())
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str = ""):
-    return {"message": f"Hello {name}"}
 
 
 @app.get("/insight/adset/{ad_set_id}", tags=["Insight API"])
